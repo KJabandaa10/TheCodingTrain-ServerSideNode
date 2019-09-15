@@ -10,5 +10,41 @@
     <h1>Data Selfie App</h1>
     <div><a href="/">hello</a> | <a href="goodbye.html">goodbye</a></div>
     <p>Hello!</p>
+    <p>
+      latitude: <span id="latitude"></span>&deg;<br />
+      longitude: <span id="longitude"></span>&deg;
+    </p>
+
+    <!-- <button id="submit">submit</button> -->
+    <button id="geolocate">geolocate</button>
   </body>
+
+  <script>
+    document.getElementById("geolocate").addEventListener("click", event => {
+      if ("geolocation" in navigator) {
+        console.log("Getting your geolocation...");
+        navigator.geolocation.getCurrentPosition(async position => {
+          lat = position.coords.latitude;
+          lon = position.coords.longitude;
+          console.log(lat, lon);
+          document.getElementById("latitude").textContent = lat;
+          document.getElementById("longitude").textContent = lon;
+
+          const data = { lat, lon };
+          const options = {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+          };
+          const response = await fetch("/api", options);
+          const json = await response.json();
+          console.log(json);
+        });
+      } else {
+        console.error("Geolocation not available");
+      }
+    });
+  </script>
 </html>
