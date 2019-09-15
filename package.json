@@ -1,0 +1,27 @@
+{
+  "name": "js-testing",
+  "version": "1.0.0",
+  "description": "Module 2 of the coding train tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KJabandaa10/TheCodingTrain-ServerSideNode.git"
+  },
+  "keywords": [
+    "data",
+    "selie",
+    "app"
+  ],
+  "author": "Kartar Singh Jabanda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KJabandaa10/TheCodingTrain-ServerSideNode/issues"
+  },
+  "homepage": "https://github.com/KJabandaa10/TheCodingTrain-ServerSideNode#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
